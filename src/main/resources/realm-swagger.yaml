@@ -1,0 +1,95 @@
+---
+swagger: "2.0"
+info:
+  title: "Swagger Spec For The Motor Policy REST API"
+  description: "This is the Swagger spec for the Policy REST API"
+  version: "v1"
+  termsOfService: "http://localhost/terms-and-conditions"
+  contact:
+    name: "Retail API Team"
+    url: "http://www.ku.com"
+    email: "api-dev@ku.com"
+  license:
+    name: "Company Licence"
+    url: "http://www.ku.com/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/v1"
+tags:
+- name: "realm"
+schemes:
+- "http"
+- "https"
+paths:
+  /service/user/realm/{id}:
+    get:
+      tags:
+      - "realm"
+      summary: "Retrieve a Motor Policy"
+      description: "This operation retrieves a PolicyCover object from "
+      operationId: "retrieve"
+      produces:
+      - application/json
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id"
+        required: true
+        pattern: "^[0-9]+$"
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Realm"
+        401:
+          description: "Unauthorized"
+        403:
+          description: "Forbidden"
+        404:
+          description: "Not Found"
+        500:
+          description: "Failure"
+  /service/user/realm:
+    post:
+      tags:
+      - "realm"
+      summary: ""
+      description: "Initiate acceptance of "
+      operationId: "create"
+      parameters:
+      - in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/Request'
+      responses:
+        201:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Realm'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        500:
+          description: Failure
+definitions:
+  Realm:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      key:
+        type: "string"
+  Request:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      description:
+        type: "string"
