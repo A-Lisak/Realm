@@ -1,24 +1,19 @@
-//package com.br.br.entity;
-//
-//import lombok.Data;
-//
-//import javax.persistence.Entity;
-//
-//@Data
-//@Entity
-//public class Realm {
-//
-//
-//    private Integer id = null;
-//
-//
-//    private String name = null;
-//
-//
-//    private String description = null;
-//
-//
-//    private String key = null;
-//
-//
-//}
+package com.br.br.entity;
+
+import lombok.Data;
+import javax.persistence.*;
+
+@Data
+@Entity
+@Table(name = "realm")
+public class Realm {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String name;
+    private String description;
+    private String key;
+
+
+}
