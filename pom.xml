@@ -22,7 +22,7 @@
 		<mockito.version>2.23.0</mockito.version>
 		<validation-api.version>2.0.1.Final</validation-api.version>
 		<swagger.codegen.version>2.3.1</swagger.codegen.version>
-		<swagger.version>2.9.2</swagger.version>
+		<swagger.version>2.10.0</swagger.version>
 		<swagger.inputSpec>src/main/resources/realm-swagger.yaml</swagger.inputSpec>
 		<swagger.modelPackage>com.lisak.swagger.model</swagger.modelPackage>
 		<swagger.apiPackage>com.lisak.swagger.api</swagger.apiPackage>
